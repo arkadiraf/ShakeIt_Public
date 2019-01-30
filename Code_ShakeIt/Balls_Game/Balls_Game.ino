@@ -26,7 +26,7 @@
     Rx --> through 1k
     Grnd --> battery GRN
 */
-#define BallNumber 14
+#define BallNumber 13
 ///////////////
 // libraries //
 ///////////////
@@ -90,7 +90,7 @@ const uint64_t Rxpipes =BallsAddresses[BallNumber];
 double Vbaterry=3.7;
 #define VBATTERY_PIN A0
 #define ADC2VBAT 163.0 // Convert ADC reading to voltage, VBatt*10/57=Vref/ADC_Res Vref=1.1v ADC_Res=1023 
-#define BATTERYMINIMUM 3.3 // minimum allowed battery voltage
+#define BATTERYMINIMUM 3.0 // minimum allowed battery voltage
 byte BatteryStatus=1; // variable to indicate battery status,0- empty, 1-full
 #define BatterySampleDelay 1000 // sample period of the battery voltage
 unsigned long VbatSampleMillis=0; // variable to hold millis counter
@@ -366,28 +366,22 @@ void loop(){
                 radio.startListening(); 
               }else if((RcvPacket[1]==WINRED)&&((PixelsMode==4))){
                colorWipe(WINRED);
-               delay(1000);
-               rainbow(20);
-               rainbow(20);
-               rainbow(20);
+               delay(2000);
+               rainbow(10);
                colorWipe(WINRED);
-               delay(1000);
+               delay(2000);
               }else if((RcvPacket[1]==WINGREEN)&&((PixelsMode==5))){
                colorWipe(WINGREEN);
-               delay(1000);
-               rainbow(20);
-               rainbow(20);
-               rainbow(20);
+               delay(2000);
+               rainbow(10);
                colorWipe(WINGREEN);
-               delay(1000);
+               delay(2000);
               }else if((RcvPacket[1]==WINBLUE)&&((PixelsMode==6))){
                colorWipe(WINBLUE);
-               delay(1000);
-               rainbow(20);
-               rainbow(20);
-               rainbow(20);
+               delay(2000);
+               rainbow(10);
                colorWipe(WINBLUE);
-               delay(1000);
+               delay(2000);
               }else if(RcvPacket[1]==SPARKUP){
                colorWipe(0xFF0000);
                delay(500);
@@ -395,7 +389,7 @@ void loop(){
                delay(500);
                colorWipe(0x0000FF);
                delay(500);
-               rainbow(20);
+               rainbow(10);
               }
             }
         } 
